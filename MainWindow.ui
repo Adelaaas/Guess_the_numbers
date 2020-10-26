@@ -6,108 +6,123 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>730</width>
-    <height>445</height>
+    <width>641</width>
+    <height>453</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QSplitter" name="splitter_6">
+   <widget class="QLineEdit" name="countLineEdit_2">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>60</y>
+      <width>141</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>20</y>
-      <width>711</width>
-      <height>411</height>
+      <y>10</y>
+      <width>235</width>
+      <height>43</height>
      </rect>
     </property>
-    <property name="orientation">
-     <enum>Qt::Vertical</enum>
+    <property name="text">
+     <string>Количество элементов из БД</string>
     </property>
-    <widget class="QSplitter" name="splitter_5">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
+   </widget>
+   <widget class="QPushButton" name="graphResultPushButton">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>60</y>
+      <width>251</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Вывести графический результат</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>50</y>
+      <width>232</width>
+      <height>43</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Введите 8-ми значное число</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="countLineEdit">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>20</y>
+      <width>141</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="kmeansPushButton">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>100</y>
+      <width>251</width>
+      <height>34</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Разбиение на 4 кластера</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="startPushButton">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>20</y>
+      <width>251</width>
+      <height>34</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Запустить анализ</string>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="resultTableWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>140</y>
+      <width>621</width>
+      <height>301</height>
+     </rect>
+    </property>
+    <column>
+     <property name="text">
+      <string>Дополнительное число</string>
      </property>
-     <widget class="QGroupBox" name="groupBox">
-      <property name="title">
-       <string>Параметры для ввода пользователем </string>
-      </property>
-      <widget class="QSplitter" name="splitter_3">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>30</y>
-         <width>399</width>
-         <height>90</height>
-        </rect>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <widget class="QSplitter" name="splitter">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <widget class="QLabel" name="label">
-         <property name="text">
-          <string>Количество элементов из БД</string>
-         </property>
-        </widget>
-        <widget class="QLineEdit" name="countLineEdit"/>
-       </widget>
-       <widget class="QSplitter" name="splitter_2">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <widget class="QLabel" name="label_2">
-         <property name="text">
-          <string>Введите 8-ми значное число</string>
-         </property>
-        </widget>
-        <widget class="QLineEdit" name="countLineEdit_2"/>
-       </widget>
-      </widget>
-     </widget>
-     <widget class="QSplitter" name="splitter_4">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <widget class="QPushButton" name="startPushButton">
-       <property name="text">
-        <string>Запустить анализ</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="graphResultPushButton">
-       <property name="text">
-        <string>Вывести графический результат</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="kmeansPushButton">
-       <property name="text">
-        <string>Разбиение на 4 кластера</string>
-       </property>
-      </widget>
-     </widget>
-    </widget>
-    <widget class="QTableWidget" name="resultTableWidget">
-     <column>
-      <property name="text">
-       <string>Дополнительное число</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Число из списка</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Результат анализа</string>
-      </property>
-     </column>
-    </widget>
+    </column>
+    <column>
+     <property name="text">
+      <string>Число из списка</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Результат анализа</string>
+     </property>
+    </column>
    </widget>
   </widget>
  </widget>
