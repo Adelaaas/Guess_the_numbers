@@ -16,12 +16,15 @@ class MainWindowController(QtWidgets.QMainWindow):
 
     def startAnalyse(self):
         print('start analyse')
+        #тут функция из файла PlaceNember
 
     def kmeansClustering(self):
         print('kmeans clustering')
+        #тут функция из файла clusters
 
     def graphResult(self):
         print('graph result')
+        #тут функция из файла clusters
 
 
 if __name__ == "__main__":
