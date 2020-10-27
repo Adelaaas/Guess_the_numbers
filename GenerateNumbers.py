@@ -1,6 +1,8 @@
 import pyodbc 
 import random
 
+# СТАРЫЙ ВАРИАНТ, НЕ ЮЗАТЬ
+
 def generate_nembers():
     # подключение к базе данных
     cnxn = pyodbc.connect(driver='{ODBC Driver 13 for SQL Server}', server='DESKTOP-L39EA60\sqlexpress', database='Numbers',trusted_connection='yes')

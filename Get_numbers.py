@@ -2,6 +2,8 @@ import pyodbc
 import random
 import GenerateNumbers
 
+# СТАРЫЙ ВАРИАНТ, НЕ ЮЗАТЬ
+
 # функция, которая на вход получает кол-во чисел
 # и возвращает из базы данных кол-во чисел
 def get_numbers(n):
