@@ -1,6 +1,7 @@
 from PyQt5 import QtWidgets
 from MainWindow import Ui_MainWindow
 import sys
+from PyQt5.QtCore import QSize, Qt
 
 from Get_numbers_v2 import get_numbers
 from PlaceNember import getPlaceNumberList
@@ -17,11 +18,24 @@ class MainWindowController(QtWidgets.QMainWindow):
         super(MainWindowController, self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        self.ui.startPushButton.clicked.connect(self.startAnalyse)
-        self.ui.kmeansPushButton.clicked.connect(self.kmeansClustering)
-        self.ui.graphResultPushButton.clicked.connect(self.graphResult)
+        self.ui.startPushButton.clicked.connect(self.start_analyse)
+        self.ui.kmeansPushButton.clicked.connect(self.kmeans_clustering)
+        self.ui.graphResultPushButton.clicked.connect(self.graph_result)
+        self.ui.resultTableWidget.resizeColumnsToContents()
 
-    def startAnalyse(self):
+    def clear_table_data(self):
+        for i in range(len(self.P) - 1, -1, -1):
+            self.ui.resultTableWidget.removeRow(i)
+
+    def set_table_data(self):
+        for i, (p, n, num) in enumerate(zip(self.P, self.N, self.numbers)):
+            self.ui.resultTableWidget.insertRow(i)
+            self.ui.resultTableWidget.setItem(i, 0, QtWidgets.QTableWidgetItem(str(self.dop_number)))
+            self.ui.resultTableWidget.setItem(i, 1, QtWidgets.QTableWidgetItem(str(num)))
+            self.ui.resultTableWidget.setItem(i, 2, QtWidgets.QTableWidgetItem(f'P({p}), N({n})'))
+
+    def start_analyse(self):
+        self.clear_table_data()
         del self.P[:]
         del self.N[:]
         del self.numbers[:]
@@ -31,13 +45,11 @@ class MainWindowController(QtWidgets.QMainWindow):
         self.P, self.N = getPlaceNumberList(self.numbers, self.dop_number)
         self.ui.kmeansPushButton.setEnabled(True)
         self.ui.graphResultPushButton.setEnabled(True)
-        print('P = ', self.P)
-        print('N = ', self.N)
-        print('Numbers = ', self.numbers)
+        self.set_table_data()
         #тут функция из файла PlaceNember
 
-    def kmeansClustering(self):
-        print('kmeans clustering')
+    def kmeans_clustering(self):
+        # print('kmeans clustering')
         cluster0, cluster1, cluster2, cluster3 = clusters.clustering(self.numbers, self.dop_number)
         if cluster0.empty:
             print('do exeption')
@@ -52,7 +64,7 @@ class MainWindowController(QtWidgets.QMainWindow):
             clusters.visualization_clusters(cluster0, cluster1, cluster2, cluster3)
         #тут функция из файла clusters
 
-    def graphResult(self):
+    def graph_result(self):
         print('graph result')
 
         #тут функция из файла clusters
