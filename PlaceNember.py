@@ -54,6 +54,17 @@ def PlaceNumber(a,b):
 
     return P, N
 
+
+def getPlaceNumberList(numbers: list, dop_number: int):
+    P = list()
+    N = list()
+    for i in numbers:
+        p, n = PlaceNumber(dop_number, i)
+        P.append(p)
+        N.append(n)
+
+    return P, N
+
 # print(PlaceNumber(931771, 136879))
 # print(PlaceNumber(931771, 931771))
 # print(PlaceNumber(931771, 773881))

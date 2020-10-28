@@ -5,25 +5,35 @@ from Get_numbers_v2 import get_numbers
 import PlaceNember
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
+from sklearn.exceptions import ConvergenceWarning
 import numpy as np
 from sklearn.model_selection import train_test_split
 import pandas as pd
 
+# Считает все warning как error
+import warnings
+warnings.filterwarnings("error")
+
 def clustering(numbers, dop_number):
     # проверяем числа и считаем Number и Place
-    P = []
-    N = []
-    for i in numbers:
-        p, n = PlaceNember.PlaceNumber(dop_number, i)
-        P.append(p)
-        N.append(n)
+    # P = []
+    # N = []
+    # for i in numbers:
+    #     p, n = PlaceNember.PlaceNumber(dop_number, i)
+    #     P.append(p)
+    #     N.append(n)
+    P, N = PlaceNember.getPlaceNumberList(numbers, dop_number)
 
     df = pd.DataFrame(pd.Series(numbers), columns=['number'])
     df['N'] = pd.Series(N)
     df['P'] = pd.Series(P)
 
     # построим 4 кластера на основе этих параметров
-    kmeans = KMeans(4).fit(df[['N','P']])
+    try:
+        kmeans = KMeans(4).fit(df[['N','P']])
+    except  ConvergenceWarning:
+        tmp = pd.DataFrame()
+        return tmp,tmp,tmp,tmp
 
     centroids = kmeans.cluster_centers_
     labels = kmeans.labels_

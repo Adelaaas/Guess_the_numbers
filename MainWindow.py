@@ -9,7 +9,6 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtCore import QObject
 
 
 class Ui_MainWindow(object):
@@ -18,9 +17,6 @@ class Ui_MainWindow(object):
         MainWindow.resize(641, 453)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.countLineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
-        self.countLineEdit_2.setGeometry(QtCore.QRect(230, 60, 141, 31))
-        self.countLineEdit_2.setObjectName("countLineEdit_2")
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(10, 10, 235, 43))
         self.label.setObjectName("label")
@@ -30,9 +26,6 @@ class Ui_MainWindow(object):
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(10, 50, 232, 43))
         self.label_2.setObjectName("label_2")
-        self.countLineEdit = QtWidgets.QLineEdit(self.centralwidget)
-        self.countLineEdit.setGeometry(QtCore.QRect(230, 20, 141, 31))
-        self.countLineEdit.setObjectName("countLineEdit")
         self.kmeansPushButton = QtWidgets.QPushButton(self.centralwidget)
         self.kmeansPushButton.setGeometry(QtCore.QRect(380, 100, 251, 34))
         self.kmeansPushButton.setObjectName("kmeansPushButton")
@@ -50,10 +43,22 @@ class Ui_MainWindow(object):
         self.resultTableWidget.setHorizontalHeaderItem(1, item)
         item = QtWidgets.QTableWidgetItem()
         self.resultTableWidget.setHorizontalHeaderItem(2, item)
+        self.countSpinBox = QtWidgets.QSpinBox(self.centralwidget)
+        self.countSpinBox.setGeometry(QtCore.QRect(230, 20, 141, 31))
+        self.countSpinBox.setMinimum(1)
+        self.countSpinBox.setMaximum(10000)
+        self.countSpinBox.setProperty("value", 10)
+        self.countSpinBox.setObjectName("countSpinBox")
+        self.dopNumberSpinBox = QtWidgets.QSpinBox(self.centralwidget)
+        self.dopNumberSpinBox.setGeometry(QtCore.QRect(230, 60, 141, 31))
+        self.dopNumberSpinBox.setMinimum(10000000)
+        self.dopNumberSpinBox.setMaximum(99999999)
+        self.dopNumberSpinBox.setProperty("value", 11111111)
+        self.dopNumberSpinBox.setObjectName("dopNumberSpinBox")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)\
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -69,6 +74,3 @@ class Ui_MainWindow(object):
         item.setText(_translate("MainWindow", "Число из списка"))
         item = self.resultTableWidget.horizontalHeaderItem(2)
         item.setText(_translate("MainWindow", "Результат анализа"))
-
-    def startAnalyse(self):
-        print('it works')
