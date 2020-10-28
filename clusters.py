@@ -31,9 +31,9 @@ def clustering(numbers, dop_number):
     # построим 4 кластера на основе этих параметров
     try:
         kmeans = KMeans(4).fit(df[['N','P']])
-    except  ConvergenceWarning:
+    except:
         tmp = pd.DataFrame()
-        return tmp,tmp,tmp,tmp
+        return tmp, tmp, tmp, tmp
 
     centroids = kmeans.cluster_centers_
     labels = kmeans.labels_
