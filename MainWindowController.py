@@ -5,6 +5,7 @@ from PyQt5.QtCore import QSize, Qt
 
 from Get_numbers_v2 import get_numbers
 from PlaceNember import getPlaceNumberList
+from PlaceNember import numbers_show
 import clusters
 
 
@@ -66,8 +67,8 @@ class MainWindowController(QtWidgets.QMainWindow):
 
     def graph_result(self):
         print('graph result')
-
-        #тут функция из файла clusters
+        numbers_show(self.P, self.N)
+        #тут функция из файла PlaceNember
 
 
 if __name__ == "__main__":

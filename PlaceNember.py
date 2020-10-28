@@ -1,5 +1,6 @@
 import numpy as np
 from collections import Counter
+import matplotlib.pyplot as plt
 
 def PlaceNumber(a,b):
     # Создадим переменные P и N
@@ -64,6 +65,12 @@ def getPlaceNumberList(numbers: list, dop_number: int):
         N.append(n)
 
     return P, N
+
+def numbers_show(N, P):
+    plt.plot(N, P, 'bo')
+    plt.xlabel('N')
+    plt.ylabel('P')
+    plt.show()
 
 # print(PlaceNumber(931771, 136879))
 # print(PlaceNumber(931771, 931771))
