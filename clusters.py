@@ -56,6 +56,8 @@ def clustering(numbers, dop_number):
 
 def visualization_clusters(cluster0,cluster1,cluster2,cluster3):
     # визуализация кластеров
+    plt.figure()
+    plt.title("Визуализация кластеров")
     plt.plot(cluster0['N'],cluster0['P'], 'bo', label='class1')
     plt.plot(cluster1['N'],cluster1['P'], 'go', label='class2')
     plt.plot(cluster2['N'],cluster2['P'], 'ro', label='class3')

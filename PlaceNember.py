@@ -67,7 +67,9 @@ def getPlaceNumberList(numbers: list, dop_number: int):
     return P, N
 
 def numbers_show(N, P):
+    plt.figure()
     plt.plot(N, P, 'bo')
+    plt.title("Графический результат анализа чисел")
     plt.xlabel('N')
     plt.ylabel('P')
     plt.show()
