@@ -64,7 +64,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Угадывание чисел"))
         self.label.setText(_translate("MainWindow", "Количество элементов из БД"))
         self.graphResultPushButton.setText(_translate("MainWindow", "Вывести графический результат"))
         self.label_2.setText(_translate("MainWindow", "Введите 6-ти значное число"))
