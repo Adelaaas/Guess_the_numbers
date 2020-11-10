@@ -67,6 +67,14 @@ def visualization_clusters(cluster0,cluster1,cluster2,cluster3):
     plt.ylabel('P')
     plt.show()
 
+def numbers_show(numbers, dop_number):
+    P, N = PlaceNember.getPlaceNumberList(numbers, dop_number)
+    plt.figure()
+    plt.plot(N, P, 'bo')
+    plt.title("Графический результат анализа чисел")
+    plt.xlabel('N')
+    plt.ylabel('P')
+    plt.show()
 # тестирование функций
 # cl0, cl1, cl2, cl3 = clustering(get_numbers(20), 931771)
 # visualization_clusters(cl0, cl1, cl2, cl3)

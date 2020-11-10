@@ -66,13 +66,13 @@ def getPlaceNumberList(numbers: list, dop_number: int):
 
     return P, N
 
-def numbers_show(N, P):
-    plt.figure()
-    plt.plot(N, P, 'bo')
-    plt.title("Графический результат анализа чисел")
-    plt.xlabel('N')
-    plt.ylabel('P')
-    plt.show()
+# def numbers_show(N, P):
+#     plt.figure()
+#     plt.plot(N, P, 'bo')
+#     plt.title("Графический результат анализа чисел")
+#     plt.xlabel('N')
+#     plt.ylabel('P')
+#     plt.show()
 
 # print(PlaceNumber(931771, 136879))
 # print(PlaceNumber(931771, 931771))
