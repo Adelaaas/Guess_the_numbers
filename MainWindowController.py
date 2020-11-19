@@ -4,7 +4,7 @@ import sys
 
 from Get_numbers_v2 import get_numbers
 from PlaceNember import getPlaceNumberList
-from PlaceNember import numbers_show
+# from PlaceNember import numbers_show
 import clusters
 
 
