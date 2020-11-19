@@ -61,7 +61,8 @@ class MainWindowController(QtWidgets.QMainWindow):
             clusters.visualization_clusters(cluster0, cluster1, cluster2, cluster3)
 
     def graph_result(self):
-        numbers_show(self.P, self.N)
+        # numbers_show(self.P, self.N)
+        clusters.numbers_show(self.numbers, self.dop_number)
 
 
 if __name__ == "__main__":
