@@ -2,9 +2,8 @@ from PyQt5 import QtWidgets
 from MainWindow import Ui_MainWindow
 import sys
 
-from Get_numbers_v2 import get_numbers
-from PlaceNember import getPlaceNumberList
-# from PlaceNember import numbers_show
+import Get_numbers_v2
+import PlaceNember
 import clusters
 
 
@@ -13,6 +12,9 @@ class MainWindowController(QtWidgets.QMainWindow):
     N = list()
     numbers = list()
     dop_number = int()
+    cluster_works = clusters.ClusterWorks()
+    place_number = PlaceNember.PlaceNumber()
+    get_numbers = Get_numbers_v2.GetNumbers()
 
     def __init__(self):
         super(MainWindowController, self).__init__()
@@ -41,14 +43,14 @@ class MainWindowController(QtWidgets.QMainWindow):
         del self.numbers[:]
 
         self.dop_number = self.ui.dopNumberSpinBox.text()
-        self.numbers = get_numbers(int(self.ui.countSpinBox.text()))
-        self.P, self.N = getPlaceNumberList(self.numbers, self.dop_number)
+        self.numbers = self.get_numbers.get_numbers(int(self.ui.countSpinBox.text()))
+        self.P, self.N = self.place_number.get_place_number_list(self.numbers, self.dop_number)
         self.ui.kmeansPushButton.setEnabled(True)
         self.ui.graphResultPushButton.setEnabled(True)
         self.set_table_data()
 
     def kmeans_clustering(self):
-        cluster0, cluster1, cluster2, cluster3 = clusters.clustering(self.numbers, self.dop_number)
+        cluster0, cluster1, cluster2, cluster3 = self.cluster_works.clustering(self.numbers, self.dop_number)
         if cluster0.empty:
             msg = QtWidgets.QMessageBox()
             msg.setIcon(QtWidgets.QMessageBox.Warning)
@@ -58,11 +60,11 @@ class MainWindowController(QtWidgets.QMainWindow):
             msg.setStandardButtons(QtWidgets.QMessageBox.Ok)
             msg.exec_()
         else:
-            clusters.visualization_clusters(cluster0, cluster1, cluster2, cluster3)
+            self.cluster_works.visualization_clusters(cluster0, cluster1, cluster2, cluster3)
 
     def graph_result(self):
         # numbers_show(self.P, self.N)
-        clusters.numbers_show(self.numbers, self.dop_number)
+        self.cluster_works.numbers_show(self.numbers, self.dop_number)
 
 
 if __name__ == "__main__":
